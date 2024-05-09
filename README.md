@@ -27,48 +27,38 @@ Therefore, D flip-flop always Hold the information, which is available on data i
 Next state of D flip-flop is always equal to data input, D for every positive transition of the clock signal. Hence, D flip-flops can be used in registers, shift registers and some of the counters.
 
 **Procedure**
-1.Define Module: Define a Verilog module for the D flip-flop with inputs (D, CLK) and outputs (Q, Q_bar).
 
-2.Declare Inputs and Outputs: Declare input and output ports for the module.
+1.Type the program in Quartus software.
 
-3.Implement Flip-Flop Logic: Write Verilog code to implement the D flip-flop logic based on its functional table. Use a synchronous always @(posedge CLK) block to trigger the flip-flop on the positive edge of the clock signal.
+2.Compile and run the program.
 
-4.Simulate Using Testbench: Write a Verilog testbench to simulate the behavior of the D flip-flop under different input conditions.
+3.Generate the RTL schematic and save the logic diagram.
 
-5.Apply Input Stimuli: In the testbench, apply various combinations of input stimuli (D, CLK) to cover all possible input states.
+4.Create nodes for inputs and outputs to generate the timing diagram.
 
-6.Verify Output Behavior: Verify that the output behavior of the D flip-flop matches the expected behavior defined by its functional table.
-
-7.Check for Race Conditions: Ensure that there are no race conditions or undefined states in the design by analyzing the timing and sequence of input changes.
-
+5.For different input combinations generate the timing diagram.
 
 
 **PROGRAM**
 ```
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
-Developed by: SRIDHARSHAN D
-RegisterNumber:212223040205
-*/
-```
-```
-module DFLIPFLOPNEGEDGE(D,Clock,reset,Q);
-input D,reset,Clock;
+module D_FF(D,Clock,reset,Q);
+input D,Clock,reset;
 output reg Q;
-always @ (negedge Clock)
+always@(negedge Clock)//use negative edge clock for triggering condition
 if(!reset)
-Q <= 0;
+Q<=0;
 else
-Q <= D;
+Q<=D;
 endmodule
 ```
 
 **RTL LOGIC FOR FLIPFLOPS**
-![image](https://github.com/23004205/D-FLIPDLOP-NEGEDGE/assets/138971114/d627972a-862c-4b5a-a9d1-4c3423554034)
-
+![de4](https://github.com/23002776/D-FLIPDLOP-NEGEDGE/assets/145742657/65aa3eea-6e7f-431f-824a-7284d4549c67)
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-![image](https://github.com/23004205/D-FLIPDLOP-NEGEDGE/assets/138971114/fd75616f-33d8-4ad1-92ad-c2dfaeb7f184)
+![de5](https://github.com/23002776/D-FLIPDLOP-NEGEDGE/assets/145742657/961d7bd6-51ed-47ad-a0aa-def07a31d293)
 
 
 **RESULTS**
+
 Thus the program to implement a D flipflop using verilog and validating their functionality using their functional tables
